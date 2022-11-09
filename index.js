@@ -88,7 +88,7 @@ app.get('/user/submit_page',(req,res)=>{
 })
 app.post('/user/submit_data/apply',(req, res)=>{
     let user=req.body.name;
-    let gameData=`,
+    let gameData=`{
     "${req.body.title}":{
         "contributer":"${user}",
         "description":"${req.body.des}",
@@ -96,16 +96,17 @@ app.post('/user/submit_data/apply',(req, res)=>{
         "genre":"${req.body.gen}"
     }
 }`
-    fs.readFile('./requestedData.json',(err,data)=>{
-        if(err) throw err;
-        fs.writeFile('./requestedData.json',data.toString().slice(0,-1),(err)=>{
-            if(err) throw err;
-        })
-        fs.appendFile('./requestedData.json',gameData,(err)=>{
-            if(err) throw err;
-        })
-    })
+    // fs.readFile('./requestedData.json',(err,data)=>{
+    //     if(err) throw err;
+    //     fs.writeFile('./requestedData.json',data.toString().slice(0,-1),(err)=>{
+    //         if(err) throw err;
+    //     })
+    //     fs.appendFile('./requestedData.json',gameData,(err)=>{
+    //         if(err) throw err;
+    //     })
+    // })
     res.write("<p>We got you Data! Thanks for your contributing</p>");
+    res.end(gameData + "")
 })
 
 app.listen(port,()=>{
