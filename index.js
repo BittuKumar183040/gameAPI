@@ -1,5 +1,5 @@
 const express=require("express");
-// const path=require('path');
+const path=require('path');
 const bodyParser=require('body-parser');
 const Data=require('./Data.json');
 const cors=require("cors")
@@ -16,7 +16,7 @@ const maxYear=2022;
 // Index page for introduction for my API
 
 app.get('/',(req, res)=>{
-    res.send("Doing good")
+    res.sendFile(path.join(__dirname,'./index.html'))
 })
 // ------------------------------------
 
