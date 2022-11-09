@@ -1,9 +1,9 @@
 const express=require("express");
-const path=require('path');
+// const path=require('path');
 const bodyParser=require('body-parser');
 const Data=require('./Data.json');
 const cors=require("cors")
-const fs=require('fs')
+// const fs=require('fs')
 
 app=express()
 app.use(cors())
@@ -16,8 +16,7 @@ const maxYear=2022;
 // Index page for introduction for my API
 
 app.get('/',(req, res)=>{
-    res.send("Working");
-    res.sendFile(path.join(__dirname,'./index.html'))
+    res.send("Doing good")
 })
 // ------------------------------------
 
@@ -84,30 +83,30 @@ app.get('/find',(req, res)=>{
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.get('/user/submit_page',(req,res)=>{
-    res.sendFile(__dirname + "/" + 'support.html')
-})
-app.post('/user/submit_data/apply',(req, res)=>{
-    let user=req.body.name;
-    let gameData=`,
-    "${req.body.title}":{
-        "contributer":"${user}",
-        "description":"${req.body.des}",
-        "release":"${req.body.rel}",
-        "genre":"${req.body.gen}"
-    }
-}`
-    fs.readFile('./requestedData.json',(err,data)=>{
-        if(err) throw err;
-        fs.writeFile('./requestedData.json',data.toString().slice(0,-1),(err)=>{
-            if(err) throw err;
-        })
-        fs.appendFile('./requestedData.json',gameData,(err)=>{
-            if(err) throw err;
-        })
-    })
-    res.write("<p>We got you Data! Thanks for your contributing</p>");
-})
+// app.get('/user/submit_page',(req,res)=>{
+//     res.sendFile(__dirname + "/" + 'support.html')
+// })
+// app.post('/user/submit_data/apply',(req, res)=>{
+//     let user=req.body.name;
+//     let gameData=`,
+//     "${req.body.title}":{
+//         "contributer":"${user}",
+//         "description":"${req.body.des}",
+//         "release":"${req.body.rel}",
+//         "genre":"${req.body.gen}"
+//     }
+// }`
+//     fs.readFile('./requestedData.json',(err,data)=>{
+//         if(err) throw err;
+//         fs.writeFile('./requestedData.json',data.toString().slice(0,-1),(err)=>{
+//             if(err) throw err;
+//         })
+//         fs.appendFile('./requestedData.json',gameData,(err)=>{
+//             if(err) throw err;
+//         })
+//     })
+//     res.write("<p>We got you Data! Thanks for your contributing</p>");
+// })
 
 app.listen(port,()=>{
     console.log(`✔ Sucessfully! Running at port : ${port}`);
