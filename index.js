@@ -86,27 +86,27 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.get('/user/submit_page',(req,res)=>{
     res.sendFile(__dirname + "/" + 'support.html')
 })
-// app.post('/user/submit_data/apply',(req, res)=>{
-//     let user=req.body.name;
-//     let gameData=`,
-//     "${req.body.title}":{
-//         "contributer":"${user}",
-//         "description":"${req.body.des}",
-//         "release":"${req.body.rel}",
-//         "genre":"${req.body.gen}"
-//     }
-// }`
-//     fs.readFile('./requestedData.json',(err,data)=>{
-//         if(err) throw err;
-//         fs.writeFile('./requestedData.json',data.toString().slice(0,-1),(err)=>{
-//             if(err) throw err;
-//         })
-//         fs.appendFile('./requestedData.json',gameData,(err)=>{
-//             if(err) throw err;
-//         })
-//     })
-//     res.write("<p>We got you Data! Thanks for your contributing</p>");
-// })
+app.post('/user/submit_data/apply',(req, res)=>{
+    let user=req.body.name;
+    let gameData=`,
+    "${req.body.title}":{
+        "contributer":"${user}",
+        "description":"${req.body.des}",
+        "release":"${req.body.rel}",
+        "genre":"${req.body.gen}"
+    }
+}`
+    fs.readFile('./requestedData.json',(err,data)=>{
+        if(err) throw err;
+        fs.writeFile('./requestedData.json',data.toString().slice(0,-1),(err)=>{
+            if(err) throw err;
+        })
+        fs.appendFile('./requestedData.json',gameData,(err)=>{
+            if(err) throw err;
+        })
+    })
+    res.write("<p>We got you Data! Thanks for your contributing</p>");
+})
 
 app.listen(port,()=>{
     console.log(`✔ Sucessfully! Running at port : ${port}`);
