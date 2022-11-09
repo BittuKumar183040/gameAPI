@@ -83,9 +83,9 @@ app.get('/find',(req, res)=>{
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-// app.get('/user/submit_page',(req,res)=>{
-//     res.sendFile(__dirname + "/" + 'support.html')
-// })
+app.get('/user/submit_page',(req,res)=>{
+    res.sendFile(__dirname + "/" + 'support.html')
+})
 // app.post('/user/submit_data/apply',(req, res)=>{
 //     let user=req.body.name;
 //     let gameData=`,
