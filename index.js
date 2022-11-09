@@ -16,6 +16,7 @@ const maxYear=2022;
 // Index page for introduction for my API
 
 app.get('/',(req, res)=>{
+    res.send("Working");
     res.sendFile(path.join(__dirname,'./index.html'))
 })
 // ------------------------------------
