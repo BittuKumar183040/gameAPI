@@ -19,13 +19,13 @@ To work with this API, use following syntax and procedure, Thanks!
 
 ?  To get the complete games data of whole year
 
-[~/{YEAR}](https://gamesdataapi.herokuapp.com/2022)
+[~/{YEAR}](https://gamesdataapi.herokuapp.com/2021)
 
 >  Search by title and year the game is released by using following syntax
 
 ~/find?title={GAMENAME}&year={YEAR}
 
-**By default year is set to 2022 if not provided**
+**By default year is set to 2021 if not provided**
 
 **Want to contribute! Provide us missing game information**
 -------------------------------------------------------
