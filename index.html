@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -108,6 +108,9 @@
             padding:0 40px;
             letter-spacing: 2px;
         }
+        input{
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -124,23 +127,23 @@
         <ul>
             <div class="alternate">
                 <li>To get Random games details in a particular year</li>
-                <a href="https://gamesdataapi.herokuapp.com/2022/random">
-                    <p class="syntax">gamesdataapi.herokuapp.com/2022/random</p>
-                </a>
+                <form method="GET" action="/2022/random">
+                    <input type="submit" class="syntax" value="/2022/random"/>
+                </form>
     
                 <li>To get Random games details from our whole collection</li>
-                <a href="https://gamesdataapi.herokuapp.com/random">
-                    <p class="syntax">gamesdataapi.herokuapp.com/random/</p>
-                </a>
+                <form  method="GET" action="/random">
+                    <input type="submit" class="syntax" value="/random/"/>
+                </form>
             </div>
             <div>
                 <li> To get the complete games data of whole year</li>
-                <a href="https://gamesdataapi.herokuapp.com/2021">
-                    <p class="syntax">gamesdataapi.herokuapp.com/{YEAR}</p>
-                </a>
+                <form  method="GET" action="/2021">
+                    <input type="submit" class="syntax" value="/{YEAR}"/>
+                </form>
                 <li>Search by title and year the game is released by using following syntax</li>
                 <a href="">
-                    <p class="syntax">gamesdataapi.herokuapp.com/find?title={GAMENAME}&year={YEAR}</p>
+                    <p class="syntax">/find?title={GAMENAME}&year={YEAR}</p>
                 </a>
                 <p class="note">By default year is set to 2021 if not provided</p>
             </div>
@@ -148,9 +151,9 @@
                 <h2>Want to contribute! <span style="font-weight:lighter;color:rgba(0,0,0,0.8)">Provide us missing game information</span></h2>
                 <h4>We will add after review your submission...</h4>
                 <p class="note">Visit below route to get contribution form</p>
-                <a href="https://gamesdataapi.herokuapp.com/user/submit_page">
-                    <p class="syntax">gamesdataapi.herokuapp.com/user/submit_page</p>
-                </a>
+                <form method="GET" action="/user/submit_page">
+                    <input type="submit" class="syntax" value="/user/submit_page"/>
+                </form>
             </div>
         </ul>
         <div class="instruction">
